@@ -11,7 +11,7 @@ export default function NewsFeed() {
     method: 'GET',
     url: 'https://crytocurrency-live.p.rapidapi.com/news',
     headers: {
-      'X-RapidAPI-Key': '81e2855377msh7438a27dbf05d71p140be7jsnc77660bda295',
+      'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
       'X-RapidAPI-Host': 'crytocurrency-live.p.rapidapi.com'
     }
   };

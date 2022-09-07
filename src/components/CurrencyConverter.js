@@ -19,7 +19,7 @@ export default function CurrencyConverter() {
       url: 'https://alpha-vantage.p.rapidapi.com/query',
       params: { from_currency: chosenPrimaryCurrency, function: 'CURRENCY_EXCHANGE_RATE', to_currency: chosenSecondaryCurrency },
       headers: {
-        'X-RapidAPI-Key': '81e2855377msh7438a27dbf05d71p140be7jsnc77660bda295',
+        'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
         'X-RapidAPI-Host': 'alpha-vantage.p.rapidapi.com'
       }
     };
