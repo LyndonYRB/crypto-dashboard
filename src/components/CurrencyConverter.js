@@ -9,6 +9,8 @@ export default function CurrencyConverter() {
   const [amount, setAmount] = useState(1);
   const [exchangeRate, setExchangeRate] = useState(0);
   const [result, setResult] = useState(0)
+  const [primaryCurrencyExchanged, setPrimaryCurrencyExchanged] = useState("BTC")
+  const [secondaryCurrencyExchanged,setSecondaryCurrencyExchanged] = useState("BTC")
   
   const currencies = ['BTC', 'ETH', 'USD', 'XRP', 'LTC', 'ADA'];
 
@@ -28,12 +30,12 @@ export default function CurrencyConverter() {
       console.log(response.data['Realtime Currency Exchange Rate']['5. Exchange Rate']);
       setExchangeRate(response.data['Realtime Currency Exchange Rate']['5. Exchange Rate']);
       setResult(response.data['Realtime Currency Exchange Rate']['5. Exchange Rate'] * amount);
+      setPrimaryCurrencyExchanged(chosenPrimaryCurrency)
+      setSecondaryCurrencyExchanged(chosenSecondaryCurrency)
     }).catch((error) => {
       console.error(error);
     });
   };
-
-console.log(exchangeRate)
 
   return (
     <div className="currency-converter">
@@ -89,8 +91,8 @@ console.log(exchangeRate)
       </div>
       <ExchangeRate
         exchangeRate={exchangeRate}
-        chosenPrimaryCurrency={chosenPrimaryCurrency}
-        chosenSecondryCurrency={chosenSecondaryCurrency}
+        chosenPrimaryCurrency={primaryCurrencyExchanged}
+        chosenSecondryCurrency={secondaryCurrencyExchanged}
       />
     </div>
   )
