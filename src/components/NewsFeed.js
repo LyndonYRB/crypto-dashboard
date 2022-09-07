@@ -30,9 +30,15 @@ export default function NewsFeed() {
  
   console.log(articles)
 
+  const firstSevenArtices = articles?.slice(0, 7)
+
   return (
     <div className="news-feed">
-      Newsfeed
+      <h2>News feed</h2>
+      {firstSevenArtices?.map((article, _index) => (
+        <div key={_index}>
+         <a href={article.url}> <p>{article.title}</p></a></div>))};
+      
     </div>
   )
   
